@@ -32,7 +32,7 @@ header{
     justify-content: space-between;
     background: transparent;
     padding: 20px 14%;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
 }
 .logo{
     font-size: 28px;
@@ -319,7 +319,7 @@ header.sticky{
     background: var(--main-color);
     border-radius: 2rem;
 }
-@media (max-width: 1000px){
+@media (max-width: 800px){
     header{
         padding: 7px 4%;
         transition: .2s;
@@ -333,7 +333,7 @@ header.sticky{
         transition: .1s;
     }
 }
-@media (max-width: 670px){
+@media (max-width: 1000px){
     #menu-icon{
         display: block;
         cursor: pointer;
@@ -360,5 +360,22 @@ header.sticky{
     }
     .navlist.open{
         left: 0;
+    }
+}
+@media (max-width: 800px){
+    .home-text h1{
+        font-size: 60px; 
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: .6rem;
+        margin-bottom: 1rem;
+        letter-spacing: .3rem;
+    }
+    .home-text span{
+        font-size: 20px;
+        font-weight: 650;
+        letter-spacing: 0.12rem;
+        font-weight: 550;
+        line-height: 1.8;
     }
 }
