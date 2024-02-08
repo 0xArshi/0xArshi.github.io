@@ -37,10 +37,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-// Close navlist when clicking outside the navbar
+// Close navlist when clicking outside the navbar and change cross icon to normal
 document.addEventListener('click', function(e) {
     const navlist = document.querySelector('.navlist');
+    const menu = document.querySelector('#menu-icon');
     if (!e.target.closest('header')) {
         navlist.classList.remove('open');
+        menu.classList.remove('bx-x');
     }
 });
