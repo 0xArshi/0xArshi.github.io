@@ -24,3 +24,23 @@ const sr = ScrollReveal({
 })
 
 sr.reveal('.home-text', {delay:280, origin:'bottom'})
+
+sr.reveal('.featured,.cta,.new,.contact', {delay:200, origin:'bottom'})
+
+// Add smooth scroll for navigation menu
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+// Close navlist when clicking outside the navbar
+document.addEventListener('click', function(e) {
+    const navlist = document.querySelector('.navlist');
+    if (!e.target.closest('header')) {
+        navlist.classList.remove('open');
+    }
+});
