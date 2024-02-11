@@ -474,8 +474,8 @@ header.sticky{
     padding-right: 15px;
 }
 .client-info .client-pic img{
-    width: 100%;
-    border-radius: 50%;
+    width: 90%;
+    border-radius: 20%;
 }
 .owl-dots{
     text-align: center;
@@ -515,4 +515,50 @@ header.sticky{
     height: 100px;
     color: var(--main-color);
     font-size: 80px;
+}
+@media (max-width: 800px) {
+    .testimonial-area .container .sec-title h2 {
+        font-size: 2rem;
+    }
+    .testimonial-area .container .sec-title p {
+        font-size: 14px;
+    }
+    .single-testimonial {
+        border: 5px solid var(--main-color);
+        border-radius: 30px;
+    }
+    .single-testimonial p {
+        padding: 20px;
+        padding-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .client-info .client-details h6 {
+        font-size: 16px;
+    }
+    .client-info .client-details span {
+        font-size: 12px;
+    }
+    .owl-carousel .owl-stage-outer {
+        padding: 5px 20px; /* Adjusted padding values */
+        margin-left: -15px; /* Adjusted margin value */
+        width: calc(100% + 30px); /* Adjusted width value */
+    }
+    .owl-dots button {
+        width: 10px;
+        height: 10px;
+    }
+    .single-testimonial:before {
+    content: '';
+        
+    }
+    .single-testimonial:after {
+        content: '';
+    }
+    .testimonial-area .container .sec-title {
+        margin-bottom: 80px; /* Increased margin to create more space */
+    }
+    .testimonial-area {
+        padding-top: 80px; /* Increased padding to create more space at the top */
+    }
 }
