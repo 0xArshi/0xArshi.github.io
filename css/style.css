@@ -86,8 +86,8 @@ section{
 .home-text h1{
     font-size: 100px;
     font-family: 'Courgette', cursive;
-    font-weight: 800;
-    line-height: 0.45;
+    font-weight: 670;
+    line-height: 0.9;
     letter-spacing: .6rem;
     margin-bottom: 1.4rem;
     letter-spacing: .5rem;
@@ -378,4 +378,141 @@ header.sticky{
         font-weight: 550;
         line-height: 1.8;
     }
+}
+@media (min-width: 1000px) {
+    #menu-icon {
+        display: none;
+    }
+}
+/*testimonial*/
+.testimonial-area .container {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    padding: 0 15px;
+}
+.testimonial-area .container .sec-title{
+    position: relative;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+}
+.testimonial-area .container .sec-title:after{
+    content:' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 3px;
+    background: var(--main-color);
+}
+.testimonial-area .container .sec-title h2{
+    font-size: var(--h2-font);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: var(--font-family);
+}
+.testimonial-area .container .sec-title p{
+    font-size: 18px;
+    line-height: 28px;
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+}
+.testimonial-area{
+    background: #ffffff;
+    position: relative;
+    z-index: 2;
+    padding: 50px 0;
+}
+.testimonial-area .owl-carousel .owl-nav{
+    overflow: hidden;
+    padding: 0 20px;
+    margin: 0 -40px;
+    padding-right: 40px;
+}
+.owl-carousel .owl-stage-outer{
+    padding: 30px 50px;
+    margin-left: -35px;
+    width: calc(100% + 100px);
+}
+.single-testimonial{
+    border: 7px solid var(--main-color);
+    text-align: center;
+    border-radius: 45px;
+    position: realtive;
+    z-index: 2;
+}
+.single-testimonial p{
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 24px;
+    padding: 50px;
+    padding-bottom: 30px;
+    position: relative;
+    z-index: 3;
+}
+
+.client-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding-bottom: 50px;
+}
+.client-info .client-details h6{
+    color: var(--main-color);
+    font-size: 18px;
+    font-weight: 700;
+}
+.client-info .client-details span{
+    display: inline-block;
+    color: var(--text-color);
+    font-size: 13px;
+}
+.client-info .client-pic{
+    padding-right: 15px;
+}
+.client-info .client-pic img{
+    width: 100%;
+    border-radius: 50%;
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 50px;
+}
+.owl-dots button{
+    background: var(--main-color) !important;
+    width: 15px;
+    height: 15px;
+    border-radius: 26px;
+    margin: 0 5px;
+    transition: .3s;
+}
+.owl-dots button.active{
+    width: 30px;
+}
+.single-testimonial:before{
+    content: '\f10d';
+    position: absolute;
+    font-family: FontAwesome;
+    left: -35px;
+    top: -35px;
+    background: #ffffff;
+    width: 126px;
+    height: 100px;
+    color: var(--main-color);
+    font-size: 80px;
+}
+.single-testimonial:after{
+    content: '\f10e';
+    position: absolute;
+    font-family: FontAwesome;
+    right: -35px;
+    bottom: -35px;
+    background: #ffffff;
+    width: 126px;
+    height: 100px;
+    color: var(--main-color);
+    font-size: 80px;
 }
