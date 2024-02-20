@@ -55,6 +55,16 @@ var span = document.getElementsByClassName("close")[0];
 // Get the images that open the modal
 var imgs = document.querySelectorAll('.featured-content .row img');
 
+// Get the contact icons container
+var contactIcons = document.querySelector('.contact-icons');
+
+// Function to hide contact icons
+function hideContactIcons() {
+  if (contactIcons) {
+      contactIcons.style.display = 'none';
+  }
+}
+
 // Loop through the images to add click event listeners
 imgs.forEach(function(img) {
   img.onclick = function() {
@@ -70,17 +80,34 @@ imgs.forEach(function(img) {
 
     // Display the modal
     modal.style.display = "block";
+
+    // Hide the contact icons when opening the modal
+    hideContactIcons();
   }
 });
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  // Hide the contact icons when closing the modal
+  hideContactIcons();
 }
 
+// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    // Hide the contact icons when closing the modal
+    hideContactIcons();
+  }
+}
+// When the "Buy Now" button is clicked, show the contact icons
+document.getElementById('buyButton').onclick = function() {
+  // Toggle the display of the contact icons
+  if (contactIcons.style.display === 'none') {
+      contactIcons.style.display = 'block';
+  } else {
+      contactIcons.style.display = 'none';
   }
 }
 
