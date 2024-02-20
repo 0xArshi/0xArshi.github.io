@@ -8,7 +8,7 @@
     scroll-behavior: smooth;
 }
 :root {
-    --bg-color: #ffffff;
+    --bg-color: #f1e9e6;
     --text-color: #000000;
     --main-color: #c8815f;
     --big-font: 4.5rem;
@@ -75,7 +75,6 @@ section{
 .home{
     min-height: 100vh;
     width: 100%;
-    background: url(../img/backgr.png);
     background-size: cover;
     background-position: center top;
     position: relative;
@@ -152,15 +151,18 @@ header.sticky{
     left: 50px;
 }
 .fea-text h5{
-    font-size: 19px;
+    font-family: "Kaushan Script", cursive;
+    color:rgb(48, 44, 44);
+    font-size: 22px;
+    font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 1rem;
 }
 .fea-text p{
-    color: #555;
+    color: #1d1b1b;
     font-size: 15px;
+    font-weight: 1100;
     letter-spacing: 1px;
-    font-weight: 400;
 }
 .fea-text span{
     /* make the span not visible or not to be diplayed */
@@ -414,9 +416,8 @@ header.sticky{
     font-size: var(--h2-font);
     font-weight: 500;
     letter-spacing: 1px;
-    text-transform: uppercase;
     color: #000000;
-    font-family: var(--font-family);
+    font-family: 'Open Sans', sans-serif;
 }
 .testimonial-area .container .sec-title p{
     font-size: 18px;
@@ -460,12 +461,12 @@ header.sticky{
 
 .client-info{
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    text-align: center; /* Center text */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     padding-bottom: 50px;
-    width: 100%; /* Ensure full width for proper centering */
+    width: 100%; 
 }
 .client-info .client-details h6{
     color: var(--main-color);
@@ -478,15 +479,14 @@ header.sticky{
     font-size: 13px;
 }
 .client-info .client-pic{
-    width: 100%; /* Use full width to center the image */
+    width: 100%; 
     display: flex;
-    justify-content: center; /* Center the image horizontally */
-    margin-bottom: 20px; /* Add space between the image and the text below */
+    justify-content: center; 
+    margin-bottom: 20px;
 }
 .client-info .client-pic img{
-    max-width: 90%; /* Limit maximum width to 90% */
+    max-width: 90%; 
     border-radius: 20%;
-    /* Ensure the image is not stretched by setting both width and height to auto */
     width: auto;
     height: auto;
     margin: 0 auto;
@@ -554,9 +554,9 @@ header.sticky{
         font-size: 12px;
     }
     .owl-carousel .owl-stage-outer {
-        padding: 5px 20px; /* Adjusted padding values */
-        margin-left: -15px; /* Adjusted margin value */
-        width: calc(100% + 30px); /* Adjusted width value */
+        padding: 5px 20px;
+        margin-left: -15px; 
+        width: calc(100% + 30px); 
     }
     .owl-dots button {
         width: 10px;
@@ -570,10 +570,10 @@ header.sticky{
         content: '';
     }
     .testimonial-area .container .sec-title {
-        margin-bottom: 80px; /* Increased margin to create more space */
+        margin-bottom: 80px; 
     }
     .testimonial-area {
-        padding-top: 80px; /* Increased padding to create more space at the top */
+        padding-top: 80px; 
     }
 }
 
@@ -596,18 +596,49 @@ header.sticky{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-.modal-content {
-    background-color: var(--bg-color);
-    margin: 10% auto; /* Centering the modal more vertically */
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    border: 1px solid #888;
-    width: 50%; /* Making the modal smaller */
-    border-radius: 10px; /* Rounded corners */
+}
+#modalImage {
+    max-width: 100%;
+    max-height: 200px; /* Adjust the max-height as needed */
+}
+.modal-description {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-content {
+    position: fixed; /* Fixed position to stay in place */
+    background-color: var(--bg-color); /* Background color variable */
+    padding: 20px; /* Padding around the content */
+    border: 1px solid #888; /* Border around the modal */
+    width: 50%; /* Width of the modal */
+    border-radius: 10px; /* Rounded corners for the modal */
     box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Shadow for depth */
-    /* Smooth transition for modal content */
-    transition: transform 0.3s ease-out;
-    transform: scale(1); /* Start with the modal content scaled down */
+    transition: transform 0.3s ease-out; /* Smooth transition for modal content */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to truly center it */
+    z-index: 1000; /* Ensure the modal is above other content */
+    /* Optional: Set a max-width to ensure it doesn't get too wide on larger screens */
+    max-width: 600px; /* Adjust as necessary */
+    /* Optional: Set a min-width to ensure it doesn't get too small on narrower screens */
+    min-width: 300px; /* Adjust as necessary */
+    /* Optional: Set a max-height and overflow to handle modal content scrolling */
+    max-height: 90vh; /* Adjust as necessary */
+    overflow-y: auto; /* Allows scrolling within the modal if the content is too long */
 }
 
 /* When the modal is displayed, scale the content up to its normal size */
@@ -621,6 +652,16 @@ header.sticky{
     font-size: 28px;
     font-weight: bold;
 }
+.contact-icons {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.contact-icon {
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
 
 .close:hover,
 .close:focus {
@@ -633,6 +674,8 @@ header.sticky{
     max-width: 100%; /* Ensure it's responsive */
     height: auto; /* Maintain aspect ratio */
     margin-bottom: 20px; /* Space between image and text */
+    /* Increase the max-height to make the image larger */
+    max-height: 300px; /* Adjust this value to suit your design */
 }
 
 .modal-description h5, .modal-description p {
@@ -672,6 +715,9 @@ header.sticky{
 @media (max-width: 768px) {
     .modal-content {
         width: 80%; /* Wider on smaller screens */
+        top: 50%; /* Adjusted for mobile view */
+        left: 50%; /* Adjusted for mobile view */
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -681,3 +727,4 @@ header.sticky{
         padding: 10px; /* Less padding */
     }
 }
+
