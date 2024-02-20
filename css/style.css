@@ -162,6 +162,11 @@ header.sticky{
     letter-spacing: 1px;
     font-weight: 400;
 }
+.fea-text span{
+    /* make the span not visible or not to be diplayed */
+    display: none;
+    
+}
 .row .arrow{
     position: absolute;
     bottom: 40px;
@@ -569,5 +574,110 @@ header.sticky{
     }
     .testimonial-area {
         padding-top: 80px; /* Increased padding to create more space at the top */
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* Adding fade-in animation */
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 10% auto; /* Centering the modal more vertically */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Making the modal smaller */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Shadow for depth */
+    /* Smooth transition for modal content */
+    transition: transform 0.3s ease-out;
+    transform: scale(1); /* Start with the modal content scaled down */
+}
+
+/* When the modal is displayed, scale the content up to its normal size */
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close {
+    color: var(--main-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalImage {
+    max-width: 100%; /* Ensure it's responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+.modal-description h5, .modal-description p {
+    color: var(--text-color);
+    font-size: var(--normal-font);
+    margin-bottom: 10px; /* Space between title and items */
+}
+
+#buyButton {
+    /* Center the button */
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    font-size: var(--normal-font);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-hidden {
+    transform: scale(0);
+}
+#buyButton:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80%; /* Wider on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%; /* Almost full width on very small screens */
+        padding: 10px; /* Less padding */
     }
 }
