@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +65,7 @@
             <div class="row">
                 <img src="../img/bear.jpg">
                 <div class="fea-text">
-                    <h5>Mini teddy bear pendent</h5>
+                    <h5>Mini Teddy Bear Pendent</h5>
                     <p>Set of two</p>
                     <span>₹249</span>
                 </div>
@@ -73,7 +76,7 @@
             <div class="row">
                 <img src="../img/jwel2.jpg">
                 <div class="fea-text">
-                    <h5>Floral Beads necklace</h5>
+                    <h5>Floral Beads Necklace</h5>
                     <p>Set of one</p>
                     <span>₹299</span>
                 </div>
@@ -95,7 +98,7 @@
             <div class="row">
                 <img src="../img/bracelet .jpg">
                 <div class="fea-text">
-                    <h5>Butterfly bracelets</h5>
+                    <h5>Butterfly Bracelets</h5>
                     <p>Set of two</p>
                     <span>₹149</span>
                 </div>
@@ -106,7 +109,7 @@
                 <div class="row">
                     <img src="../img/bracelet2.jpg">
                     <div class="fea-text">
-                        <h5>Shades of pink bracelet</h5>
+                        <h5>Shades of Pink Bracelet</h5>
                         <p>Set of one</p>
                         <span>₹129</span>
                     </div>
@@ -133,8 +136,8 @@
             <div class="new-content">
                 <div class="box">
                     <img src="../img/key1.jpg">
-                    <h5> loren opsum dizgi</h5> 
-                    <h6>$69</h6>
+                    <h5>Resin Pendant</h5> 
+                    <h6>₹180</h6>
                     <div class = "sale">
                         <h4>Sale</h4>
                     </div> 
@@ -142,8 +145,8 @@
 
                 <div class="box">
                     <img src="../img/key2.jpg">
-                    <h5> loren opsum dizgi</h5> 
-                    <h6>$69</h6>
+                    <h5>Rose Bud Pendant</h5> 
+                    <h6>₹180</h6>
                     <div class = "sale">
                         <h4>Sale</h4>
                     </div> 
@@ -151,13 +154,18 @@
 
                 <div class="box">
                     <img src="../img/key3.jpg">
-                    <h5> loren opsum dizgi</h5> 
-                    <h6>$69</h6>
+                    <h5>Teddy Bear Keychain</h5> 
+                    <h6>₹99</h6>
                     <div class = "sale">
                         <h4>Sale</h4>
                     </div> 
                 </div>
             </div>
+        </section>
+        <section class="cta" style="background: url(../img/sss.png);">
+            <div class="cta-text">
+                <h4> Scrunchies<br>Range</h4>
+            </div> 
         </section>
 <!--testimonial-->        
         <section class="testimonial-area" id="review">
@@ -268,7 +276,7 @@
                 <h5>Connect With Us</h5>
                 <div class="icons">
                     <a href="#"><i class='bx bxs-phone' ></i></a>
-                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="https://www.instagram.com/arsh__accessoriesandgifts?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
                     <a href="#"><i class='bx bxl-whatsapp' ></i></a>
                     <a href="mailto:arshaccessories.business@gmail.com"><i class='bx bxl-gmail' ></i></a>
                 </div>
@@ -298,23 +306,40 @@
     <div class="last-text">
            <p>© 2022 Arsh Accessories. All rights reserved</p>
 <!--modal-->
-    </div>
     <div id="productModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <img id="modalImage" src="" alt="Product Image">
-          <div class="modal-description">
-            <h5 id="modalTitle">Product Title</h5>
-            <p id="modalItems">10 items</p>
-            <p id="modalPrice">$69</p>
-            <button id="buyButton">Buy Now</button>
-          </div>
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="Product Image">
+                </div>
+                <div class="modal-description">
+                    <h5 id="modalTitle">Product Title</h5>
+                    <p id="modalItems">10 items</p>
+                    <p id="modalDesc">Modal Description</p>
+                    <p id="modalPrice">$69</p>
+                    <button id="buyButton">Buy Now</button>
+                    <div class="contact-icons">
+                        <a href="#" class="contact-icon"><i class='bx bxl-whatsapp'></i></a>
+                        <a href="#" class="contact-icon"><i class='bx bxs-phone'></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $.noConflict();
+        // Use jQuery via jQuery(...) instead of $(...)
+        jQuery(document).ready(function($) {
+        // Code that uses jQuery's $ can follow here.
+        });
+    </script>
          <!--scroll top-->
-    <a href="#home" class="top" style="transition: transform 0.3s;" onmouseover="this.style.transform = 'translateY(-10px)';" onmouseout="this.style.transform = 'translateY(0)';"><i class='bx bx-up-arrow-alt' ></i></a>
+         <a href="#home" class="top" style="transition: opacity 0.5s;" onmouseover="this.style.opacity = '0.5';" onmouseout="this.style.opacity = '1';"><i class='bx bx-up-arrow-alt' ></i></a>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+    
 
         <script src="js/script.js"></script>
 </html>
