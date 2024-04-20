@@ -156,3 +156,24 @@ window.onclick = function(event) {
     modal.classList.remove("show");
   }
 }
+
+// Function to open modal and show specific service content
+function openServiceModal(service) {
+  document.querySelectorAll('.service-content').forEach(function(content) {
+      content.style.display = 'none'; // Hide all service contents
+  });
+  document.getElementById(service).style.display = 'block'; // Show the specific service content
+  document.getElementById('servicesModal').style.display = 'block'; // Show the modal
+}
+
+// Close the modal when the close button is clicked
+document.querySelector('.services-modal .close').onclick = function() {
+  document.getElementById('servicesModal').style.display = "none";
+}
+
+// Close the modal when clicking outside of the modal content
+window.onclick = function(event) {
+  if (event.target == document.getElementById('servicesModal')) {
+      document.getElementById('servicesModal').style.display = "none";
+  }
+}
