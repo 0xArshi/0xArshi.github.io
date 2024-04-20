@@ -602,32 +602,32 @@ header.sticky{
     justify-content: center;
 }
 .modal-image-container {
-    flex: 1;
-    display: flex;
+    padding: 20px;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 #modalImage {
     max-width: 100%;
-    max-height: 200px; /* Adjust the max-height as needed */
+    height: auto;
+    border-radius: 10px; /* Rounded corners for the image */
 }
 .modal-description {
-    flex: 2;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* Align items to the start for a cleaner look */
 }
 .modal-content {
     position: fixed; /* Fixed position to stay in place */
-    background-color: var(--bg-color); /* Background color variable */
+    color: var(--text-color);
+    background-color: white; /* Background color variable */
     padding: 20px; /* Padding around the content */
-    border: 1px solid #888; /* Border around the modal */
+    border: 1px solid rgba(0,0,0,0.1); /* Border around the modal */
     width: 50%; /* Width of the modal */
     border-radius: 10px; /* Rounded corners for the modal */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Shadow for depth */
-    transition: transform 0.3s ease-out; /* Smooth transition for modal content */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Shadow for depth */
+    transition: transform 0.3s ease-out, opacity 0.3s ease; /* Smooth transition for modal content */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust the position to truly center it */
@@ -643,7 +643,13 @@ header.sticky{
 
 /* When the modal is displayed, scale the content up to its normal size */
 .modal.show .modal-content {
-    transform: scale(1);
+    opacity: 1; /* Ensure content is fully visible when modal is active */
+    transform: translate(-50%, -50%) scale(1.05); /* Slightly scale up for emphasis */
+}
+
+.modal-hidden {
+    opacity: 0; /* Hide modal content when not in use */
+    transform: translate(-50%, -50%) scale(0.95); /* Scale down for a subtle hide animation */
 }
 
 .close {
@@ -685,22 +691,87 @@ header.sticky{
 }
 
 #buyButton {
-    /* Center the button */
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    margin: 0 auto;
+    background-color: var(--main-color); /* Primary color */
+    color: white; /* Contrast text color */
+    padding: 12px 24px; /* Generous padding for a better touch area */
+    font-size: 1rem; /* Readable font size */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners for a modern look */
+    cursor: pointer; /* Cursor pointer to indicate it's clickable */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for visual feedback */
+}
+
+#buyButton:hover, #buyButton:focus {
+    background-color: var(--text-color); /* Darker shade on hover for contrast */
+    color: #fff; /* Ensuring text color is white for better readability */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adding shadow for depth */
+}
+
+.contact-heading {
+    text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--main-color);
-    color: var(--bg-color);
-    font-size: var(--normal-font);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    font-weight: bold;
+    display: none; /* Initially hidden like the icons */
+}
+
+.modal .modal-description .contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+#modalPrice {
+    font-size: 1.5rem; /* Larger font size for better visibility */
+    color: var(--main-color); /* Use the main color for emphasis */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+    padding: 10px 20px; /* Padding for a better shape */
+    border-radius: 5px; /* Rounded corners */
+    margin: 10px 0; /* Margin for spacing */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+    display: inline-block; /* Makes the background only as wide as the content */
+}
+.contact-icon i {
+    font-size: 2.5rem; /* Larger icons */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-icon:hover i {
+    transform: scale(1.3); /* Enlarge icons on hover */
+    color: var(--main-color); /* Highlight color on hover */
+}
+
+.contact-icon {
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for both transform and color */
+}
+
+.contact-icon:hover {
+    transform: scale(1.3); /* Slightly enlarge icons on hover */
+    color: var(--main-color); /* Change color to highlight */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.contact-icon i {
+    animation: pulse 2s infinite;
 }
 
 .modal-hidden {
@@ -714,17 +785,12 @@ header.sticky{
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .modal-content {
-        width: 80%; /* Wider on smaller screens */
-        top: 50%; /* Adjusted for mobile view */
-        left: 50%; /* Adjusted for mobile view */
-        transform: translate(-50%, -50%);
+        width: 90%; /* More screen-relative sizing */
+        padding: 10px; /* Adjust padding */
     }
-}
 
-@media (max-width: 480px) {
-    .modal-content {
-        width: 95%; /* Almost full width on very small screens */
-        padding: 10px; /* Less padding */
+    #modalPrice, #buyButton {
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
     }
 }
 
