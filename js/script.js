@@ -122,15 +122,6 @@ span.onclick = function() {
   hideContactIcons();
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-    // Hide the contact icons and the "Contact Us to Buy" text when closing the modal
-    contactIcons.style.display = 'none';
-    document.querySelector('.contact-heading').style.display = 'none';
-  }
-}
 // When the "Buy Now" button is clicked, show the contact icons
 // When the "Buy Now" button is clicked, show or hide the contact icons and the contact heading
 document.getElementById('buyButton').onclick = function() {
@@ -173,6 +164,15 @@ document.querySelector('.services-modal .close').onclick = function() {
 
 // Close the modal when clicking outside of the modal content
 window.onclick = function(event) {
+  // Check if the click is outside the 'productModal'
+  if (event.target == modal) {
+      modal.style.display = "none";
+      contactIcons.style.display = 'none';
+      document.querySelector('.contact-heading').style.display = 'none';
+      hideContactIcons();
+  }
+
+  // Check if the click is outside the 'servicesModal'
   if (event.target == document.getElementById('servicesModal')) {
       document.getElementById('servicesModal').style.display = "none";
   }
