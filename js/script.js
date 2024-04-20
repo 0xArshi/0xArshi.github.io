@@ -52,29 +52,40 @@ var modal = document.getElementById('productModal');
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// Get the images that open the modal
-var imgs = document.querySelectorAll('.featured-content .row img');
-
 // Get the contact icons container
 var contactIcons = document.querySelector('.contact-icons');
 
 // Function to hide contact icons
 function hideContactIcons() {
   if (contactIcons) {
-      contactIcons.style.display = 'none';
+    contactIcons.style.display = 'none';
   }
 }
+
+// Select images from both Featured and New Arrivals sections
+var imgs = document.querySelectorAll('.featured-content .row img, .new .box img');
 
 // Loop through the images to add click event listeners
 imgs.forEach(function(img) {
   img.onclick = function() {
-    // Get the product details from the same row
-    var productName = this.nextElementSibling.querySelector('h5').textContent;
-    var productItems = this.nextElementSibling.querySelector('p').textContent;
-    var productPrice = this.nextElementSibling.querySelector('span').textContent;
+    // Initialize variables to hold product details
+    var productName, productPrice;
+
+    // Check if the clicked image is from the featured section
+    if (this.closest('.featured-content')) {
+      var productDetails = this.nextElementSibling; // Assuming details are the next sibling
+      productName = productDetails.querySelector('h5').textContent;
+      productPrice = productDetails.querySelector('span').textContent;
+    } 
+    // Check if the clicked image is from the new arrivals section
+    else if (this.closest('.new')) {
+      var productBox = this.closest('.box');
+      productName = productBox.querySelector('h5').textContent;
+      productPrice = productBox.querySelector('h6').textContent;
+    }
+
     // Update the modal content
     document.getElementById('modalTitle').textContent = productName;
-    document.getElementById('modalItems').textContent = productItems;
     document.getElementById('modalPrice').textContent = productPrice;
     document.getElementById('modalImage').src = this.src;
 
@@ -86,10 +97,28 @@ imgs.forEach(function(img) {
   }
 });
 
+// When the "Buy Now" button is clicked, update the WhatsApp link based on the product shown in the modal
+document.getElementById('buyButton').addEventListener('click', function() {
+  // Retrieve the product name currently displayed in the modal
+  var productName = document.getElementById('modalTitle').textContent;
+  // Prepare the base message to include in the WhatsApp link
+  var baseWhatsAppMessage = "Hello, I came across your product on your website and I am interested in making a purchase. Could you please provide me with more information about ";
+  // Concatenate the base message with the product name
+  var fullMessage = baseWhatsAppMessage + productName;
+  // URL-encode the full message to ensure it's web-safe
+  var encodedMessage = encodeURIComponent(fullMessage);
+  // Select the WhatsApp link element by its ID
+  var whatsappLink = document.getElementById('whatsappLink');
+  // Update the href attribute of the WhatsApp link with the encoded message
+  whatsappLink.href = `https://wa.me/916261383275?text=${encodedMessage}`;
+});
+
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
   // Hide the contact icons when closing the modal
+  contactIcons.style.display = 'none';
+  document.querySelector('.contact-heading').style.display = 'none';
   hideContactIcons();
 }
 
@@ -97,17 +126,21 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    // Hide the contact icons when closing the modal
-    hideContactIcons();
+    // Hide the contact icons and the "Contact Us to Buy" text when closing the modal
+    contactIcons.style.display = 'none';
+    document.querySelector('.contact-heading').style.display = 'none';
   }
 }
 // When the "Buy Now" button is clicked, show the contact icons
+// When the "Buy Now" button is clicked, show or hide the contact icons and the contact heading
 document.getElementById('buyButton').onclick = function() {
-  // Toggle the display of the contact icons
-  if (contactIcons.style.display === 'none') {
-      contactIcons.style.display = 'block';
+  // Check the current display style of the contact icons
+  if (contactIcons.style.display === 'none' || contactIcons.style.display === '') {
+      contactIcons.style.display = 'flex'; // Use 'flex' to align icons properly
+      document.querySelector('.contact-heading').style.display = 'block'; // Show the heading
   } else {
       contactIcons.style.display = 'none';
+      document.querySelector('.contact-heading').style.display = 'none'; // Hide the heading
   }
 }
 
