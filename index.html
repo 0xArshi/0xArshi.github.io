@@ -291,9 +291,11 @@
             </div>
             <div class="main-contact">
                 <h3>Our Services</h3>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Shipping</a></li>
-                <li><a href="#">Gifts</a></li>
+                <ul>
+                    <li><a href="javascript:void(0);" onclick="openServiceModal('pricingContent')">Pricing</a></li>
+                    <li><a href="javascript:void(0);" onclick="openServiceModal('shippingContent')">Shipping</a></li>
+                    <li><a href="javascript:void(0);" onclick="openServiceModal('giftsContent')">Gifts</a></li>
+                </ul>
             </div>
 
             <div class="main-contact">
@@ -324,6 +326,27 @@
                         <a href="" id="whatsappLink" class="contact-icon"><i class='bx bxl-whatsapp'></i></a>
                         <a href="tel://+916261383275" class="contact-icon"><i class='bx bxs-phone'></i></a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services Modal -->
+<!-- Services Modal -->
+    <div id="servicesModal" class="modal services-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div id="pricingContent" class="service-content">
+                    <h3>Pricing</h3>
+                    <p>Detailed pricing plans available. Contact us for bulk orders and discounts.</p>
+                </div>
+                <div id="shippingContent" class="service-content">
+                    <h3>Shipping</h3>
+                    <p>We offer domestic and international shipping. Free shipping on orders over $50.</p>
+                </div>
+                <div id="giftsContent" class="service-content">
+                    <h3>Gifts</h3>
+                    <p>Customizable gift options available for special occasions. Gift wrapping services included.</p>
                 </div>
             </div>
         </div>
