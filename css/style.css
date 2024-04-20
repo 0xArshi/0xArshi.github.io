@@ -794,3 +794,61 @@ header.sticky{
     }
 }
 
+/* Specific styles for the Services Modal */
+.services-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050; /* High z-index to ensure it's above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+}
+
+.services-modal .modal-content {
+    position: absolute; /* Absolute position relative to the nearest positioned ancestor */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px; /* Maximum width of the modal */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    /* Centering the modal content vertically and horizontally */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Shifts the modal to center it on the screen */
+}
+
+.services-modal .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.services-modal .close:hover {
+    color: #666;
+}
+
+.services-modal .modal-body {
+    text-align: center;
+}
+
+.services-modal .service-content {
+    display: none; /* Initially hide all service contents */
+    text-align: left;
+    padding: 15px;
+}
+
+/* Responsive adjustments for the Services Modal */
+@media (max-width: 768px) {
+    .services-modal .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+}
